@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Layout" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/smarty/smarty" />
+      <path value="$PROJECT_DIR$/vendor/rmccue/requests" />
+      <path value="$PROJECT_DIR$/vendor/mnsami/composer-custom-directory-installer" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Custom" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Debug" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Exceptions" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/QueryField" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Integrations" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/TextParser" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Cache" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Fields" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/SystemWarnings" />
+      <path value="$PROJECT_DIR$/vendor/yii/base" />
+      <path value="$PROJECT_DIR$/vendor/yii/db" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Log" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Db" />
+      <path value="$PROJECT_DIR$/vendor/yii/log" />
+      <path value="$PROJECT_DIR$/vendor/sabre/uri" />
+      <path value="$PROJECT_DIR$/vendor/yii/di" />
+      <path value="$PROJECT_DIR$/vendor/sabre/event" />
+      <path value="$PROJECT_DIR$/vendor/sabre/vobject" />
+      <path value="$PROJECT_DIR$/vendor/yii/helpers" />
+      <path value="$PROJECT_DIR$/vendor/sabre/http" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/sabre/dav" />
+      <path value="$PROJECT_DIR$/vendor/simshaun/recurr" />
+      <path value="$PROJECT_DIR$/vendor/sabre/xml" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/php-debugbar/src" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Session" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Main" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/yetiforce/Dav" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
+</project>
