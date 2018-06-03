@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdc8d60e-371a-4bde-844e-a0a6e574b81b" name="Default" comment="" />
+    <list default="true" id="fdc8d60e-371a-4bde-844e-a0a6e574b81b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/developer.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/developer.php" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,58 +13,59 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-              <folding>
-                <element signature="e#6#884#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cache/templates_c/index.html">
+        <entry file="file://$PROJECT_DIR$/config/modules/Calendar.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cache/templates_c/basic/index.html">
+        <entry file="file://$PROJECT_DIR$/config/modules/Home.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cache/templates_c/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/config/modules/Import.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/IStorages.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/ModTracker.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/Reports.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/Reservations.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/SQuotes.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/modules/SSalesProcesses.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cache/vtlib/HTML/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phpinfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/config/modules/Users.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -77,8 +82,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/phpinfo.php" />
-        <option value="$PROJECT_DIR$/config/config.inc.php" />
         <option value="$PROJECT_DIR$/cache/templates_c/.gitignore" />
+        <option value="$PROJECT_DIR$/config/config.inc.php" />
+        <option value="$PROJECT_DIR$/config/developer.php" />
       </list>
     </option>
   </component>
@@ -155,60 +161,275 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectUserFactors">
-    <factor id="binaryFeature:liftShorter" />
-    <factor id="binaryFeature:liftShorterClasses" />
-    <factor id="binaryFeature:middleMatching" />
-    <factor id="binaryFeature:nonGeneric" />
-    <factor id="binaryFeature:prox_inResolveScope" />
-    <factor id="binaryFeature:prox_openedInEditor" />
-    <factor id="binaryFeature:prox_sameDirectory" />
-    <factor id="binaryFeature:prox_sameLogicalRoot" />
-    <factor id="binaryFeature:prox_sdkOrLibrary" />
-    <factor id="binaryFeature:templates" />
-    <factor id="categoricalFeature:accessible" />
-    <factor id="categoricalFeature:expectedType" />
-    <factor id="categoricalFeature:kind" />
-    <factor id="categoricalFeature:prox_groovyReferenceListWeigher" />
-    <factor id="categoricalFeature:prox_javaInheritance" />
-    <factor id="categoricalFeature:prox_referenceList" />
-    <factor id="categoricalFeature:recursion" />
-    <factor id="completionFinishedType">
-      <dailyData date="2-6-2018">
-        <observation name="cancelled" value="10,0" />
+    <factor id="binaryFeature:liftShorter">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
       </dailyData>
     </factor>
-    <factor id="completionType" />
+    <factor id="binaryFeature:liftShorterClasses">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:middleMatching">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:nonGeneric">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_inResolveScope">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_openedInEditor">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameDirectory">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameLogicalRoot">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sdkOrLibrary">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:templates">
+      <dailyData date="3-6-2018">
+        <observation name="false" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:accessible">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:expectedType">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:kind">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
+      <dailyData date="3-6-2018">
+        <observation name="unknown" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_javaInheritance">
+      <dailyData date="3-6-2018">
+        <observation name="null" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_referenceList">
+      <dailyData date="3-6-2018">
+        <observation name="unknown" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:recursion">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="completionFinishedType">
+      <dailyData date="3-6-2018">
+        <observation name="cancelled" value="6,0" />
+        <observation name="explicitSelect" value="1,0" />
+        <observation name="typedSelect" value="3,0" />
+      </dailyData>
+    </factor>
+    <factor id="completionType">
+      <dailyData date="3-6-2018">
+        <observation name="BASIC" value="4,0" />
+      </dailyData>
+    </factor>
     <factor id="completionUsage">
-      <dailyData date="2-6-2018">
+      <dailyData date="3-6-2018">
         <observation name="count" value="10,0" />
       </dailyData>
     </factor>
-    <factor id="doubleFeature:explicitProximity" />
-    <factor id="doubleFeature:grouping" />
-    <factor id="doubleFeature:mostUsed" />
-    <factor id="doubleFeature:nameEnd" />
-    <factor id="doubleFeature:position" />
-    <factor id="doubleFeature:prefix" />
-    <factor id="doubleFeature:priority" />
-    <factor id="doubleFeature:prox_explicitlyImported" />
-    <factor id="doubleFeature:prox_knownElement" />
-    <factor id="doubleFeature:prox_sameModule" />
-    <factor id="doubleFeature:prox_samePsiMember" />
-    <factor id="doubleFeature:query_length" />
-    <factor id="doubleFeature:result_length" />
-    <factor id="doubleFeature:sameWords" />
-    <factor id="doubleFeature:shorter" />
-    <factor id="doubleFeature:simple" />
-    <factor id="doubleFeature:sorter" />
-    <factor id="doubleFeature:statics" />
-    <factor id="doubleFeature:stats" />
-    <factor id="itemPosition" />
-    <factor id="mnemonicsUsage" />
-    <factor id="prefixLength" />
+    <factor id="doubleFeature:explicitProximity">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:grouping">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:mostUsed">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:nameEnd">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:position">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prefix">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="-1153,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="-1153,0" />
+        <observation name="min" value="-1153,0" />
+        <observation name="variance" value="-0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:priority">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_explicitlyImported">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_knownElement">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_sameModule">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_samePsiMember">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:query_length">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="0,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="0,0" />
+        <observation name="min" value="0,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:result_length">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="4,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="4,0" />
+        <observation name="min" value="4,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sameWords">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:shorter">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:simple">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sorter">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="1,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="1,0" />
+        <observation name="min" value="1,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:statics">
+      <dailyData date="3-6-2018">
+        <observation name="UNDEFINED" value="4,0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:stats">
+      <dailyData date="3-6-2018">
+        <observation name="average" value="9948,0" />
+        <observation name="count" value="7,0" />
+        <observation name="max" value="9948,0" />
+        <observation name="min" value="9948,0" />
+        <observation name="variance" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="itemPosition">
+      <dailyData date="3-6-2018">
+        <observation name="0" value="1,0" />
+      </dailyData>
+    </factor>
+    <factor id="mnemonicsUsage">
+      <dailyData date="3-6-2018">
+        <observation name="total" value="1,0" />
+        <observation name="withMnemonics" value="0,0" />
+      </dailyData>
+    </factor>
+    <factor id="prefixLength">
+      <dailyData date="3-6-2018">
+        <observation name="4" value="1,0" />
+      </dailyData>
+    </factor>
     <factor id="timeBetweenTyping">
-      <dailyData date="2-6-2018">
-        <observation name="average" value="152,8" />
-        <observation name="count" value="5,0" />
+      <dailyData date="3-6-2018">
+        <observation name="average" value="199,833333" />
+        <observation name="count" value="6,0" />
       </dailyData>
     </factor>
   </component>
@@ -217,9 +438,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,326 +449,14 @@
             <path>
               <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
               <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="rss_cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="HTML" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-              <item name="Batch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="com_vtiger_workflow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Import" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="cron" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Reports" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="fields" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="runtime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="runtime" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="Webservices" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="basic" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="PriceBooks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="libraries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="licenses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="public_html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="Contacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="KnowledgeBase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="KnowledgeBase" type="462c0819:PsiDirectoryNode" />
-              <item name="Audio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="KnowledgeBase" type="462c0819:PsiDirectoryNode" />
-              <item name="Img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="KnowledgeBase" type="462c0819:PsiDirectoryNode" />
-              <item name="Video" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="MultiImage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="OSSMailView" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="Pdf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="Pdf" type="462c0819:PsiDirectoryNode" />
-              <item name="watermark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="Products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="Users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="user_privileges" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="ModuleDir" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="ModuleDir" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="ModuleDir" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseModule" type="462c0819:PsiDirectoryNode" />
-              <item name="languages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="ModuleDir" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseModule" type="462c0819:PsiDirectoryNode" />
-              <item name="languages" type="462c0819:PsiDirectoryNode" />
-              <item name="en_us" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="thirdparty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rubic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="vtlib" type="462c0819:PsiDirectoryNode" />
-              <item name="Vtiger" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -557,6 +464,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
@@ -603,7 +511,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527938982863" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528013236908" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -627,7 +535,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527938982863" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528013236909" />
       </method>
     </configuration>
   </component>
@@ -641,27 +549,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527929253867</updated>
-      <workItem from="1527929260372" duration="2950000" />
+      <workItem from="1527929260372" duration="3547000" />
+      <workItem from="1528012645101" duration="589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2950000" />
+    <option name="totallyTimeSpent" value="4136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="-9" width="1860" height="1098" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972005" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23796193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -669,15 +574,19 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,27 +596,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/phpinfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cache/rss_cache/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="30" selection-start-column="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-          <folding>
-            <element signature="e#6#884#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,16 +612,133 @@
     <entry file="file://$PROJECT_DIR$/cache/templates_c/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpinfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cache/vtlib/HTML/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding>
+            <element signature="e#6#884#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/api.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/csrf_config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/csrf_secret.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/debug.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/developer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/performance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/relation.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/search.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/secret_keys.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/security.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/sounds.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/username_blacklist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/version.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Accounts.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/API.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Assets.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Home.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Import.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/IStorages.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/ModTracker.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Reports.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Reservations.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/SQuotes.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/SSalesProcesses.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules/Users.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

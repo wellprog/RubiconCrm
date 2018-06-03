@@ -46,8 +46,8 @@ $HELPDESK_SUPPORT_EMAIL_REPLY = '';
 
 $dbconfig['db_server'] = 'localhost';
 $dbconfig['db_port'] = '3306';
-$dbconfig['db_username'] = 'velor';
-$dbconfig['db_password'] = '65qa32we';
+$dbconfig['db_username'] = 'crm';
+$dbconfig['db_password'] = 'crm';
 $dbconfig['db_name'] = 'rubic';
 $dbconfig['db_type'] = 'mysql';
 $dbconfig['db_status'] = 'true';
