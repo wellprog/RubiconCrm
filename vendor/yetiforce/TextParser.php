@@ -1147,4 +1147,67 @@ class TextParser
 	{
 		return preg_match('/^\$\((\w+) : ([,"\+\-\[\]\&\w\s\|]+)\)\$$/', $text);
 	}
+
+	/**
+	 * Truncating HTML.
+	 *
+	 * @param string   $html
+	 * @param int|bool $length
+	 * @param bool     $addDots
+	 *
+	 * @return string
+	 */
+	public static function htmlTruncate($html, $length = false, $addDots = true)
+	{
+		if (!$length) {
+			$length = \AppConfig::main('listview_max_textlength');
+		}
+		return (new \Urodoz\Truncate\TruncateService())->truncate($html, $length, $addDots ? '...' : '');
+	}
+
+	/**
+	 * Truncating text.
+	 *
+	 * @param string   $text
+	 * @param int|bool $length
+	 * @param bool     $addDots
+	 *
+	 * @return string
+	 */
+	public static function textTruncate($text, $length = false, $addDots = true)
+	{
+		if (!$length) {
+			$length = \AppConfig::main('listview_max_textlength');
+		}
+		if (function_exists('mb_strlen')) {
+			if (mb_strlen($text) > $length) {
+				$text = mb_substr($text, 0, $length, \AppConfig::main('default_charset'));
+				if ($addDots) {
+					$text .= '...';
+				}
+			}
+		} elseif (strlen($text) > $length) {
+			$text = substr($text, 0, $length);
+			if ($addDots) {
+				$text .= '...';
+			}
+		}
+		return $text;
+	}
+
+	/**
+	 * Get text length.
+	 *
+	 * @param string $text
+	 *
+	 * @return int
+	 */
+	public static function getTextLength($text)
+	{
+		if (function_exists('mb_strlen')) {
+			return mb_strlen($text);
+		} else {
+			return strlen($text);
+		}
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 /**
@@ -9,7 +10,6 @@ namespace App;
  */
 class UserPrivilegesFile
 {
-
 	/**
 	 * Creates a file with all the user, user-role,user-profile, user-groups informations
 	 * @param int $userid
@@ -88,6 +88,7 @@ class UserPrivilegesFile
 			if ($userFocus->is_admin == 'on') {
 				fputs($handle, $newBuf);
 				fclose($handle);
+
 				return;
 			} else {
 				$sharingPrivileges = [];
@@ -146,10 +147,10 @@ class UserPrivilegesFile
 	 * groups and user's related module data that is to be shared  for the specified parent module and shared module
 	 * @param string $par_mod
 	 * @param string $share_mod
-	 * @param array $mod_sharingrule_members
-	 * @param array $mod_share_read_per
-	 * @param array $mod_share_write_per
-	 * @param array $def_org_share
+	 * @param array  $mod_sharingrule_members
+	 * @param array  $mod_share_read_per
+	 * @param array  $mod_share_write_per
+	 * @param array  $def_org_share
 	 * @return array
 	 */
 	public static function getRelatedModuleSharingArray($par_mod, $share_mod, $mod_sharingrule_members, $mod_share_read_per, $mod_share_write_per, $def_org_share)
@@ -278,6 +279,7 @@ class UserPrivilegesFile
 		}
 		$relatedModSharingPermission['read'] = $modShareReadPermission;
 		$relatedModSharingPermission['write'] = $modShareWritePermission;
+
 		return $relatedModSharingPermission;
 	}
 
@@ -326,7 +328,7 @@ class UserPrivilegesFile
 	/**
 	 * Function to populate the read/wirte Sharing permissions data for the specified user into the database
 	 * @param string $enttype
-	 * @param int $userId
+	 * @param int    $userId
 	 * @param string $module
 	 * @param string $pertype
 	 * @param boolean $varArr
@@ -382,7 +384,7 @@ class UserPrivilegesFile
 			if (!empty($varArr['GROUP'])) {
 				foreach ($varArr['GROUP'] as $groupId => $grpusers) {
 					if (!in_array($groupId, $grpArr)) {
-						$dbCommand->insert($tableName, ['userid' => $userId, 'tabid' => $tabId, 'shareduserid' => $groupId])->execute();
+						$dbCommand->insert($tableName, ['userid' => $userId, 'tabid' => $tabId, 'sharedgroupid' => $groupId])->execute();
 						$grpArr[] = $groupId;
 					}
 				}
@@ -393,7 +395,7 @@ class UserPrivilegesFile
 	/**
 	 * Function to populate the read/wirte Sharing permissions related module data for the specified user into the database
 	 * @param string $enttype
-	 * @param int $userid
+	 * @param int    $userid
 	 * @param string $module
 	 * @param string $relmodule
 	 * @param string $pertype
@@ -451,7 +453,7 @@ class UserPrivilegesFile
 			if (!empty($varArr['GROUP'])) {
 				foreach ($varArr['GROUP'] as $groupId => $grpUsers) {
 					if (!in_array($groupId, $grpArr)) {
-						$dbCommand->insert($tableName, ['userid' => $userId, 'tabid' => $tabId, 'relatedtabid' => $relTabId, 'shareduserid' => $groupId])->execute();
+						$dbCommand->insert($tableName, ['userid' => $userId, 'tabid' => $tabId, 'relatedtabid' => $relTabId, 'sharedgroupid' => $groupId])->execute();
 						$grpArr[] = $groupId;
 					}
 				}

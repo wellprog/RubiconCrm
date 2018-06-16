@@ -61,4 +61,14 @@ class Project_Detail_View extends Vtiger_Detail_View
 		];
 		return array_merge(parent::getHeaderCss($request), $this->checkAndConvertCssStyles($cssFileNames));
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public function getFooterScripts(\App\Request $request)
+	{
+		return array_merge(parent::getFooterScripts($request), $this->checkAndConvertJsScripts([
+				'~libraries/gantt/dhtmlxgantt.js',
+		]));
+	}
 }
