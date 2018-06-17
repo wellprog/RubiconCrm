@@ -1,0 +1,15 @@
+[15-Jun-2018 21:04:33 Europe/Moscow] PHP Notice:  Undefined index: IP_ADDRESS in /var/www/RubiconCrm/libraries/csrf-magic/csrf-magic.php on line 249
+[17-Jun-2018 09:03:59 Europe/Moscow] PHP Notice:  Undefined index: IP_ADDRESS in /var/www/RubiconCrm/libraries/csrf-magic/csrf-magic.php on line 249
+[17-Jun-2018 09:10:17 Europe/Moscow] PHP Notice:  Undefined index: X-POWERED-BY in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 383
+[17-Jun-2018 09:10:17 Europe/Moscow] PHP Notice:  Undefined index: X-POWERED-BY in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 389
+[17-Jun-2018 09:10:17 Europe/Moscow] PHP Notice:  Undefined index: SERVER in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 391
+[17-Jun-2018 09:45:08 Europe/Moscow] PHP Notice:  Undefined index: IP_ADDRESS in /var/www/RubiconCrm/libraries/csrf-magic/csrf-magic.php on line 249
+[17-Jun-2018 09:45:35 Europe/Moscow] PHP Notice:  Undefined index: X-POWERED-BY in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 383
+[17-Jun-2018 09:45:35 Europe/Moscow] PHP Notice:  Undefined index: X-POWERED-BY in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 389
+[17-Jun-2018 09:45:35 Europe/Moscow] PHP Notice:  Undefined index: SERVER in /var/www/RubiconCrm/modules/Settings/ConfReport/models/Module.php on line 391
+[17-Jun-2018 09:50:06 Europe/Moscow] PHP Notice:  Undefined variable: roleId in /var/www/RubiconCrm/modules/Settings/Menu/views/CreateMenu.php on line 26
+[17-Jun-2018 09:52:26 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
+[17-Jun-2018 09:52:27 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
+[17-Jun-2018 09:52:28 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
+[17-Jun-2018 09:52:28 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
+[17-Jun-2018 10:11:40 Europe/Moscow] PHP Notice:  Undefined variable: stdFilterList in /var/www/RubiconCrm/modules/CustomView/models/Record.php on line 627
