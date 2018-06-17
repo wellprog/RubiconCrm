@@ -44,10 +44,10 @@ $HELPDESK_SUPPORT_EMAIL_REPLY = '';
   db_name
  */
 
-$dbconfig['db_server'] = 'localhost';
+$dbconfig['db_server'] = '82.146.62.224';
 $dbconfig['db_port'] = '3306';
 $dbconfig['db_username'] = 'crm';
-$dbconfig['db_password'] = 'crm';
+$dbconfig['db_password'] = 'MG2eCduYqVsK';
 $dbconfig['db_name'] = 'rubic';
 $dbconfig['db_type'] = 'mysql';
 $dbconfig['db_status'] = 'true';
@@ -204,7 +204,7 @@ $layoutInLoginView = false;
 $defaultLayout = 'basic';
 
 // Redirect to proper url when wrong url is entered.
-$forceRedirect = true;
+$forceRedirect = false;
 
 // Enable advanced phone number validation. Enabling  it will block saving invalid phone number.
 $phoneFieldAdvancedVerification = true;
