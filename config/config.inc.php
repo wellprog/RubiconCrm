@@ -57,7 +57,7 @@ $dbconfig['db_hostname'] = $dbconfig['db_server'] . ':' . $dbconfig['db_port'];
 $host_name = $dbconfig['db_hostname'];
 
 // backslash is required at the end of URL
-$site_URL = 'http://rubic.ru/';
+$site_URL = 'http://rubiconepro.fvds.ru/';
 
 // cache direcory path
 $cache_dir = 'cache/';
