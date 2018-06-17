@@ -1,0 +1,463 @@
+if (window.$ == null)
+    window.$ = window.jQuery;
+
+/**
+ *   M E S S A G E S
+ */
+window.NOTIFICATIONS = {
+    context: {
+        rootDocument: null,
+        container: null,
+
+        messages: {
+            "UNKNOWN": "Произошла неизвестня ошибка, дополнительной информации нет.",
+            "TOO_MANY_REQUESTS": "Слишком много запросов к серверу. Подождите немного.",
+
+            "INVALID_ARGUMENT": "Невалидный аргумент запроса.",
+            "INVALID_OLD_PASSWORD": "Введен неправильный старый пароль.",
+            "INVALID_ARGUMENT__OUT_OF_BORDERS": "Аргументы запроса выходят за установленные границы.",
+
+            "LOGIN_INVALID_EMAIL_OR_PASSWORD": "Неверный email или пароль.",
+            "LOGIN_EMAIL_USED_BY_ANOTHER_USER": "Этот email уже используется другим пользователем.",
+            "LOGIN_UNKNOWN_VERIFICATION_CODE": "Неверный код верификации.",
+            "LOGIN_ENCRYPTION_ERROR": "Ошибка шифрования.",
+
+            "SUBSCRIPTION_NOT_FOUND": "Такая подписка не существует.",
+            "SUBSCRIPTION_PREMIUM_REQUIRED": "Требуется Premium-подписка.",
+            "SUBSCRIPTION_PREMIUM_PRO_REQUIRED": "Требуется подписка Premium Pro.",
+            "SUBSCRIPTION_INVALID_STATUS": "Статус подписки не допускает эту операцию.",
+            "SUBSCRIPTION_RENEWAL_UNSUPPORTED": "Подписка не поддерживает автопродление.",
+            "SUBSCRIPTION_CONTINUE_UNSUPPORTED": "Подписка не может быть продлена.",
+            "SUBSCRIPTION_PAUSE_UNSUPPORTED": "Подписку нельзя поставить на паузу.",
+
+            "USER_LEVEL_IS_TOO_LOW": "Ваш уровень слишкм маленький.",
+            "NOT_ENOUGH_DARK_MATTER": "Недостаточно чёрной материи.",
+            "ACCESS_DENIED": "Доступ запрещен.",
+            "TASK_NOT_FOUND": "Задача не найдена.",
+            "LECTURE_NOT_FOUND": "Лекция не найдена.",
+            "USER_NOT_FOUND": "Пользователь не найден.",
+
+            "QUEST_NOT_FOUND": "Квест не существует.",
+            "QUEST_LEVEL_NOT_FOUND": "Уровень квеста не существует.",
+            "QUEST_LESSON_NOT_FOUND": "Лекция не найдена.",
+            "QUEST_OPENED_YET": "Кветс уже открыт.",
+            "QUEST_USERQUEST_UNAVAILABLE": "Квест недоступен.",
+            "QUEST_PREVIOUS_LEVEL_UNREACHABLE": "Предыдущий уровень не открыт.",
+            "QUEST_PREVIOUS_LESSON_UNREACHABLE": "Предыдущая лекция не открыта.",
+
+            "PAYMENT_UNKNOWN_CURRENCY": "Неизвестная валюта.",
+            "PAYMENT_WITHDRAW_ERROR": "Ошибка во время списания денег.",
+            "PAYMENT_NOT_FOUND": "Платеж не найден.",
+
+            "SENDING_MESSAGE_IS_FORBIDDEN": "Сообщение не может быть отправлено.",
+            "MESSAGE_DAILY_LIMIT_IS_EXCEEDED": "Превышен общий дневной лимит на отправку личных сообщений.",
+            "MESSAGE_DAILY_RECIPIENT_LIMIT_IS_EXCEEDED": "Превышен дневной лимит на отправку сообщений разным получателям.",
+            "MESSAGE_DAILY_LIMIT_TO_NON_FRIEND_USER_IS_EXCEEDED": "Превышен дневной лимит на отправку сообщений пользователю, с которым вы не дружите.",
+            "MESSAGE_DAILY_LIMIT_TO_FRIEND_USER_IS_EXCEEDED": "Превышен дневной лимит на отправку сообщений другу.",
+
+            "ACCESS_RULE_VIOLATION_GRAYLIST": "Пользователь добавлен в серый список.",
+            "ACCESS_RULE_VIOLATION_MUTE": "Пользователь не может оставлять комментарии.",
+            "ARTICLE_NOT_FOUND": "Статья не найдена.",
+            "AUTHORIZATION_ERROR": "Ошибка авторизации.",
+            "CANT_DELETE_INTERNSHIP_WITH_REQUESTS": "Нельзя удалить стажировку, на которую есть заявки пользователей.",
+            "COMMENT_NOT_FOUND": "Комментарий не найден.",
+            "COMMENTS_DAILY_LIMIT_IS_EXCEEDED": "Превышено количество комментариев, которое можно оставить за день.",
+            "DEMOCMS_ONE_PROCESS_IN_PROGRESS_ALREADY": "Другой процесс обновления из базы DemoCMS уже запущен.",
+            "ELASTICSEARCH_ONE_PROCESS_IN_PROGRESS_ALREADY": "Другой процесс заливки данных в индекс Elasticsearch уже запущен.",
+            "DIALOGUE_INTERLOCUTOR_NOT_FOUND": "Не найден пользователь, которому собираетесь написать сообщение.",
+            "DIALOGUE_MESSAGE_NOT_FOUND": "DIALOGUE MESSAGE NOT FOUND.",
+            "DIALOGUE_NOT_FOUND": "Диалог не найден.",
+            "DISCUSSION_COMMENT_NOT_FOUND": "Комментарий не найден.",
+            "DISCUSSION_NOT_FOUND": "Дискуссия не найдена.",
+            "DISCUSSION_COMMENT_NOT_CORRELATES_WITH_DISCUSSION": "Комментарий не соответствует дискуссии.",
+            "IMAGE_NOT_FOUND": "Картинка не найдена.",
+            "IMAGE_PROCESSING_ERROR": "Ошибка сохранения или обработки изображения.",
+            "INTERNSHIP_NOT_FOUND": "Стажировка не найдена.",
+            "JOB_NOT_FOUND": "JOB NOT FOUND.",
+            "LEVEL_0_USERS_CANNOT_SEND_COMMENTS": "Пользователь нулевого уровня не может оставлять комментарии.",
+            "LEVEL_DOWN_NOT_SUPPORTED": "Запрещено опускать уровень.",
+            "MAIN_CLASS_NOT_FOUND": "MAIN CLASS NOT FOUND.",
+            "MERCHANT_NOT_FOUND": "Поставщик услуги покупки не найден.",
+            "NO_ONE_INTERNSHIP_IN_QUALIFICATION": "Нет стажировки, на которую сейчас происходит набор.",
+            "NOTIFICATION_NOT_FOUND": "Уведомление не найдено.",
+            "NOTIFICATION_MESSAGE_NOT_FOUND": "Текст уведомления не найден.",
+            "QUEST_LESSON_ALREADY_REACHED": "Урок уже открыт.",
+            "QUESTION_NOT_FOUND": "Вопрос не найден.",
+            "SENDING_COMMENT_IS_FORBIDDEN": "Комментарий не может быть отправлен",
+            "SHOP_NOT_FOUND": "Неверный shopID.",
+            "SHORTLINK_NOT_FOUND": "Короткая ссылка не найдена.",
+            "SIZE_LIMIT_EXCEEDED": "Превышен допустимый размер.",
+            "SUBSCRIPTION_NOT_CORRELATES_WITH_USER": "Подписка не относится к пользователю.",
+            "SUCCESS": "SUCCESS.",
+            "SUCCESSSTORY_NOT_FOUND": "История успеха не найдена.",
+            "TASK_COMPILATION_ERROR": "Ошибка компиляции.",
+            "TASK_LOAD_ERROR": "TASK LOAD ERROR.",
+            "TASK_NO_JAVA_FILES_ERROR": "В решении отсутствуют файлы java.",
+            "TASK_RUN_ERROR": "Ошибка выполнения решения.",
+            "TASK_SAVE_ERROR": "Ошибка сохранения решения.",
+            "TASK_SOLVED": "Задача уже окончательно решена.",
+            "TASK_TIMEOUT_ERROR": "Превышено время выполнения задачи на сервере.",
+            "TASK_UNAVAILABLE": "Задача не доступна.",
+            "TASK_UNKNOWN": "Задача не найдена.",
+            "TASK_VALIDATION_ERROR": "Ошибка проверки задачи.",
+            "UNKNOWN_ERROR": "Произошла неизвестня ошибка, дополнительной информации нет.",
+            "UNKNOWN_USER": "UNKNOWN USER.",
+            "USER_INTERNSHIP_NOT_CORRELATES_WITH_INTERNSHIP": "Заявка пользователя на стажировку не соответствует стажировке.",
+            "USER_INTERNSHIP_NOT_FOUND": "Заявка пользователя на стажировку не найдена.",
+            "USER_SUBSCRIPTION_NOT_FOUND": "Подписка пользователя не найдена.",
+            "POST_NOT_FOUND": "Пост не найден.",
+            "GROUP_NOT_FOUND": "Группа не найдена.",
+            "NOT_A_MEMBER": "Пользователь не является членом группы.",
+            "MEMBER_NOT_FOUND": "Участник группы не найден.",
+            "INSUFFICIENT_PRIVILEGES": "Недостаточно привилегий для выполнения действия.",
+            "MEMBER_ALREADY_IN_GROUP": "Пользователь уже состоит в группе.",
+            "NOT_EXIST": "Тип сущности не существует",
+            "TASK_KEY_EXISTS_ALREADY": "Ключ задачи уже существует в базе.",
+            "LECTURE_KEY_EXISTS_ALREADY": "Ключ лекции уже существует в базе.",
+            "USER_TASK_COUNT_NOT_FOUND": "Количество решенных задач пользователя не найдено.",
+
+            "AUDIENCE_NOT_FOUND": "Аудитория не найдена.",
+            "USER_AUDIENCE_NOT_FOUND": "Пользовательская аудитория не найдена.",
+            "COURSE_NOT_FOUND": "Курс не найден.",
+            "SEGMENT_NOT_FOUND": "Сегмент не найден.",
+            "AUDIENCE_FULL": "Аудитория уже заполнена, в нее больше нельзя добавлять пользователей.",
+            "AUDIENCE_NOT_ACTIVE": "Аудитория не активна (архивная или удаленная).",
+            "QUESTION_TASK_SOLVED": "Вы не можете прикрепить к вопросу код решения вашей задачи, так как задача уже решена. Публиковать правильные решения запрещено!",
+            "TASK_SAVE_NOT_FOUND": "Не найдены сохраненные файлы по текущей задаче.",
+            "TASK_SAVE_DATA_FORMAT_EXCEPTION": "Ошибка получения сохранённых файлов пользователя.",
+            "QUESTION_DELETE_ALREADY": "Этот вопрос уже был удален.",
+
+            "USER_HAVE_NO_EMAIL": "Невозможно повторно отправить код верефикации, так как не установлен email.",
+
+            "ARTICLE_KEY_EXIST_ALREADY": "Статья с таким ключем уже существует в БД.",
+
+            "QUIZ_NOT_FOUND": "Опрос не найден.",
+            "QUIZ_UNAVAILABLE": "Опрос не доступен.",
+            "QUIZ_MAX_ATTEMPTS_COUNT_ACHIEVED": "Достигнуто максимальное количество попыток для этого опроса.",
+            "USER_QUIZ_IN_PROGRESS_NOT_FOUND": "Опрос в прогрессе не найден.",
+            "QUIZ_QUESTION_NOT_FOUND": "Вопрос из опроса не найден.",
+            "PREVIOUS_USER_QUIZ_SESSION_NOT_COMPLETE": "Перед тем как начинать новую попытку пройти опрос, нужно завершить уже начатую попытку.",
+            "QUIZ_QUESTION_NOT_CORRELATE_WITH_QUIZ": "Вопрос не соответствует опросу.",
+            "QUIZ_QUESTION_INDEX_TO_HIGH": "Индекс вопроса больше, чем количество вопросов в опросе. Индексы не могут идти не по порядку.",
+            "NO_ANSWERS_FOR_QUIZ_QUESTION": "У вопроса нет вариантов ответа.",
+            "QUIZ_QUESTION_WAS_ANSWERED_ALREADY": "Вы уже отвечали на этот вопрос в этой сессии.",
+            "ANSWER_NOT_FOUND": "Ответ на вопрос не найден.",
+            "ANSWER_NOT_CORRELATE_WITH_QUIZ_QUESTION": "Вариант ответа не соответствует вопросу.",
+            "QUIZ_QUESTION_WITH_TYPE_SELECT_ONE_COULD_NOT_HAVE_TWO_CORRECT_ANSWERS": "Вопрос с типом SELECT_ONE не может иметь двух правильных вариантов ответа.",
+        }
+    },
+
+    initialize: function () {
+        NOTIFICATIONS.initializeRootDocument();
+        NOTIFICATIONS.initializeContainer();
+    },
+
+    initializeRootDocument: function () {
+        try {
+            NOTIFICATIONS.context.rootDocument = window.top.document;
+        } catch (e) {
+            NOTIFICATIONS.context.rootDocument = window.document;
+        }
+    },
+
+    initializeContainer: function () {
+        if($('.alert-area').length) return;
+        $('body').append('<div class="alert-area alert-area--top-right"></div>');
+    },
+
+    addHtmlMessageToContainer: function (icon, html, timeout) {
+        $('.alert-area--top-right').notify({
+            message: {
+                html: html,
+                text: html
+            },
+            type: icon,
+            closable: true,
+            transition: 'fade',
+            fadeOut: {
+                enabled: true,
+                delay: timeout
+            }
+        }).show();
+    },
+
+
+    getMessageInfo: function (messageObject) {
+        var result = {
+            message: "",
+            debugMessage: ""
+        };
+
+        if (messageObject == null) {
+            result.message = NOTIFICATIONS.context.messages["UNKNOWN"];
+            result.debugMessage = "messageObject==null";
+        }
+        else if (messageObject.responseJSON != null) {
+            var json = messageObject.responseJSON;
+
+            result.message = json.code != null ? NOTIFICATIONS.context.messages[json.code] : null;
+            if (result.message == null)
+                result.message = json.message;
+            if (result.message == null)
+                result.message = json.code;
+            if (result.message == null)
+                result.message = NOTIFICATIONS.context.messages["UNKNOWN"];
+
+            result.debugMessage = json.developerMessage;
+            if (result.debugMessage == null)
+                result.debugMessage = JSON.stringify(json);
+        }
+
+        else if (messageObject.responseText != null) {
+            result.message = messageObject.responseText;
+            result.debugMessage = JSON.stringify(messageObject);
+        }
+        else if (messageObject.message != null) {
+            result.message = messageObject.message;
+            result.debugMessage = JSON.stringify(messageObject);
+        }
+        else if (jQuery.type(messageObject) === "string") {
+            result.message = messageObject;
+            result.debugMessage = "";
+        }
+        else {
+            result.message = JSON.stringify(messageObject);
+            result.debugMessage = "";
+        }
+
+        return result;
+    },
+
+    showErrorNotification: function (messageObject) {
+        //create message
+        var info = NOTIFICATIONS.getMessageInfo(messageObject);
+
+        //bing data and panel
+        var message = info.message;
+        if (PARAMS.getUrlParameter("debug") == "true")
+            message += '<div class="debug">' + info.debugMessage + '</div>';
+
+        NOTIFICATIONS.addHtmlMessageToContainer("danger", message, 5000);
+
+        if ($("#jr-captcha-panel").length) {
+            var response = JSON.parse(messageObject.responseText);
+            hideCaptcha(response);
+        }
+    },
+
+    showWarningNotification: function (message) {
+        NOTIFICATIONS.addHtmlMessageToContainer("warning", message, 5000);
+    },
+
+    showInfoNotification: function (message) {
+        NOTIFICATIONS.addHtmlMessageToContainer("info", message, 5000);
+    },
+
+    showSuccessNotification: function (message) {
+        NOTIFICATIONS.addHtmlMessageToContainer("success", message, 5000);
+    },
+
+
+    showAddMoneyNotification: function (money) {
+        //create message
+        var message = 'Вы получили&nbsp;<div class="dark-matter dark-matter--plus"><div class="dark-matter__icon"><svg class="icon icon--common-dark-matter"><use xlink:href="/assets/icons/site.svg#icon-common-dark-matter"></use></svg></div><div class="dark-matter__value" id="dark-matter-value">{money}</div></div>&nbsp;чёрной материи!';
+        message = message.replace("{money}", money);
+
+        NOTIFICATIONS.addHtmlMessageToContainer("success", message, 5000);
+    },
+
+    showWithdrawMoneyNotification: function (money) {
+        //create message
+        var message = 'Списание&nbsp;<div class="dark-matter dark-matter--minus"><div class="dark-matter__icon"><svg class="icon icon--common-dark-matter"><use xlink:href="/assets/icons/site.svg#icon-common-dark-matter"></use></svg></div><div class="dark-matter__value" id="dark-matter-value">{money}</div></div>&nbsp;чёрной материи!';
+        message = message.replace("{money}", money);
+
+        NOTIFICATIONS.addHtmlMessageToContainer("danger", message, 5000); //you can set default style
+    }
+
+};
+
+$(function () {
+    NOTIFICATIONS.initialize();
+});
+
+/**
+ *  S T A T I S T I C S
+ */
+window.STATISTICS = {
+    context: {
+        isEventsSendable: true,
+        ignoreLocationPathnameRegex: "^\\/widget\\/"
+    },
+
+    initPageEvents: function () {
+        if (window.location.pathname.match(STATISTICS.context.ignoreLocationPathnameRegex)) return;
+
+
+        var isUserActivityDetected = false;
+        var pagePathname = window.location.pathname + window.location.search + window.location.hash;
+        // OPEN EVENT
+        if (STATISTICS.context.isEventsSendable) STATISTICS.sendSiteEventAsync(pagePathname, "OPEN", false)
+
+        // CLOSE EVENT
+        window.addEventListener("beforeunload", function () {
+            if (STATISTICS.context.isEventsSendable) STATISTICS.sendSiteEventAsync(pagePathname, "CLOSE", false)
+        });
+
+        // Listen to user activity
+        document.addEventListener("keydown", handleUserActivity);
+        document.addEventListener("mousemove", handleUserActivity);
+        document.addEventListener("scroll", handleUserActivity);
+
+        function handleUserActivity() {
+            isUserActivityDetected = true;
+        }
+
+        function sendUserActivityDataAsync() {
+            if (STATISTICS.context.isEventsSendable && !document.hidden) {
+                var isCommentsOnScreen = false;
+                var commentsElement = document.getElementById("discussion");
+                if (commentsElement) {
+                    isCommentsOnScreen = STATISTICS.checkElementPositionOnScreen(commentsElement, 500, "visible");
+                }
+                STATISTICS.sendSiteEventAsync(pagePathname, "ACTIVE", isCommentsOnScreen, isUserActivityDetected);
+                isUserActivityDetected = false; // reset user activity
+            }
+            setTimeout(sendUserActivityDataAsync, 60 * 1000);
+        }
+
+        setTimeout(sendUserActivityDataAsync, 60 * 1000);
+    },
+
+    checkElementPositionOnScreen: function(elm, threshold, mode) {
+        threshold = threshold || 0;
+        mode = mode || 'visible';
+
+        var rect = elm.getBoundingClientRect();
+        var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        var above = rect.bottom - threshold < 0;
+        var below = rect.top - viewHeight + threshold >= 0;
+
+        return mode === 'above' ? above : (mode === 'below' ? below : !above && !below);
+    },
+
+    sendSiteEventAsync: function (url, actionType, isCommentAction, isUserActivityDetected) {
+        if (typeof isUserActivityDetected === "undefined") {
+            isUserActivityDetected = null;
+        }
+
+        $.ajax({
+            url: "/api/1.0/rest/events/site",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                url: url,
+                actionType: actionType,
+                zoneOffset: -(new Date().getTimezoneOffset() / 60),
+                isComment: isCommentAction,
+                isActive: isUserActivityDetected
+            }),
+            success: function () {
+            },
+            error: function (response) {
+                // Stop sending statistic events
+                STATISTICS.context.isEventsSendable = false;
+            }
+        });
+    }
+};
+
+$(function () {
+    $.ajax({
+        url: "/api/1.0/rest/me",
+        method: "get",
+        contentType: "application/json",
+        success: function (data) {
+            // is user authenticated
+            if (data && data.id) {
+                STATISTICS.initPageEvents();
+            }
+        },
+        error: function (response) {
+        }
+    });
+
+    $.ajax({
+        url: "/api/1.0/rest/events/track",
+        type: "GET",
+        contentType: "application/json",
+        success: function () {
+        },
+        error: function (response) {
+        }
+    });
+
+    if($.fn.selectpicker) {
+        // bootstrap-select defaults
+        $.fn.selectpicker.defaults = {
+            dropupAuto: false,
+            size: 999, // prevent scrollbar
+            mobile: /Android|android|webOS|webos|iPhone|iphone|iPad|ipad|iPod|ipod|BlackBerry|blackBerry|IEMobile|iemobile|opera mini|Opera Mini/i.test(navigator.userAgent)
+        };
+
+        // perfect scroll for bootstrap-select
+        $('body').on('shown.bs.select', '.selectpicker', function() {
+           var $this = $(this);
+           var dropdownContainer = $this.parent().find('.dropdown-menu .dropdown-menu')[0];
+           var ps = new PerfectScrollbar(dropdownContainer, {
+               suppressScrollX: true
+           });
+
+           $(this).one('hidden.bs.select', function() {
+               ps.destroy();
+               ps = null;
+           })
+        })
+    }
+});
+
+/**
+ * P A R A M S
+ */
+window.PARAMS = {
+    getUrlParameter: function (param) {
+        var query = window.location.search.substring(1);
+        var parts = query.split("&");
+        for (var i = 0; i < parts.length; i++) {
+            var seg = parts[i].split("=");
+            if (seg[0] == param) {
+                return window.decodeURIComponent(seg[1]);
+            }
+        }
+        return null;
+    },
+    getUrlWhitoutParametr: function () {
+        var url = window.location.href.split("?");
+        return url[0];
+    }
+};
+
+function hideCaptcha(response) {
+    $captchaContainer = $("#jr-captcha-panel");
+
+    if (!$captchaContainer.length) return;
+
+    $captchaContainer.addClass("d-none");
+    grecaptcha.reset();
+    if (document.URL.indexOf("/login/signup") != -1) {
+        $("div#jr-register-panel").removeClass("d-none");
+    } else if (document.URL.indexOf("/login/forgot") != -1) {
+        $("div#jr-forgot-panel").removeClass("d-none");
+    } else if (document.URL.indexOf("/login") != -1) {
+        $("div#jr-switch-panel").removeClass("d-none");
+        switch (response.code) {
+            case "USER_NOT_FOUND":
+                $("#jr-secret-login-panel").removeClass("d-none");
+                $("#jr-secret-key-login").html("Логин по email + password");
+                break;
+            default:
+                $("#jr-email-login-panel").removeClass("d-none");
+                $("#jr-secret-key-login").html("Логин по секретному ключу");
+                break;
+        }
+    }
+}

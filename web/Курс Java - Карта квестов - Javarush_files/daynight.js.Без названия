@@ -1,0 +1,82 @@
+/**
+ *  Day-Night mode
+ */
+window.DAYNIGHT = {
+    context: {
+        light: null,
+        defaultTheme: "light",
+        cookieName: "javarush.daynight"
+    },
+
+    initialize: function () {
+        var daynightCheckbox = this.daynightCheckbox();
+        DAYNIGHT.context.light = DAYNIGHT.loadCurrentDayNightMode();
+
+        if(daynightCheckbox) {
+            daynightCheckbox.onchange = function () {
+                DAYNIGHT.context.light = daynightCheckbox.checked ? "light" : "";
+                DAYNIGHT.saveCurrentDayNightModeIntoCookie();
+                DAYNIGHT.updateUI();
+                DAYNIGHT.updateWidgets();
+                DAYNIGHT.fireLightChangedEvent();
+                return false;
+            };
+        }
+
+        window.onresize = function() {
+            DAYNIGHT.context.light = DAYNIGHT.loadCurrentDayNightMode();
+            DAYNIGHT.updateUI();
+        };
+    },
+
+    daynightCheckbox: function() {
+        return document.querySelector(".switcher-daynight__checkbox");
+    },
+
+    loadCurrentDayNightMode: function () {
+        var daynightCheckbox = this.daynightCheckbox();
+        if(!daynightCheckbox) {
+            var daynightCookie = COOKIES.getCookie(DAYNIGHT.context.cookieName);
+            return (typeof daynightCookie === "string" ? daynightCookie : DAYNIGHT.context.defaultTheme)
+        }
+        return daynightCheckbox.checked ? "light" : "";
+    },
+
+    saveCurrentDayNightModeIntoCookie: function () {
+        var light = DAYNIGHT.context.light === "light" ? "light" : "";
+        COOKIES.setCookieUnlimited(DAYNIGHT.context.cookieName, light);
+    },
+
+    updateUI: function () {
+        if(DAYNIGHT.context.light === "light") {
+            document.querySelector("html").classList.add("light");
+        } else {
+            document.querySelector("html").classList.remove("light");
+        }
+    },
+
+    updateWidgets: function () {
+        var hostPattern = new RegExp(location.protocol + '//' + location.hostname, 'g');
+
+        $('iframe').each(function () {
+            if (this.src.match(hostPattern)) {
+                if (this.contentWindow.DAYNIGHT) {
+                    this.contentWindow.DAYNIGHT.loadCurrentDayNightMode();
+                }
+            }
+        });
+    },
+
+    fireLightChangedEvent: function () {
+        var hostPattern = new RegExp(location.protocol + '//' + location.hostname, 'g');
+
+        $('iframe').each(function () {
+            if (this.src.match(hostPattern)) {
+                this.contentWindow.dispatchEvent(new Event('resize'));
+            }
+        });
+    }
+};
+
+DAYNIGHT.initialize();
+

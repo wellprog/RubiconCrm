@@ -1,0 +1,26 @@
+/**
+ * C O O K I E
+ */
+window.COOKIES = {
+    getCookie: function (name) {
+        var parts = document.cookie.split(name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    },
+    setCookieUnlimited: function (name, value) {
+        var dt = new Date();
+        dt.setTime(dt.getTime() + 365 * 86400 * 1000);
+        COOKIES.setCookie(name, value, dt.toGMTString(), "/");
+    },
+
+    setCookie: function (name, value, expires, path, domain, secure) {
+        document.cookie = name + "=" + encodeURIComponent(value) +
+            ((expires) ? "; expires=" + expires : "") +
+            ((path) ? "; path=" + path : "") +
+            ((domain) ? "; domain=" + domain : "") +
+            ((secure) ? "; secure" : "");
+    },
+
+    deleteCookie: function (name) {
+        COOKIES.setCookie(name, null, -1);
+    }
+};

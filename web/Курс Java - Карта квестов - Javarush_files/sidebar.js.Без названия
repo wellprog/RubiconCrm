@@ -1,0 +1,43 @@
+window.SIDEBAR = {
+    context: {
+        isExpanded: false
+    },
+
+    initialize: function() {
+        var $doc = $(document);
+        $doc.on('click', '.toggle-menu-button, .site-layout--sidebar-open .site-layout__main', function(e) {
+            e.stopPropagation();
+            SIDEBAR.toggleSidebar();
+        });
+    },
+
+    toggleSidebar: function() {
+        var isExpanded = !SIDEBAR.context.isExpanded;
+        SIDEBAR.context.isExpanded = isExpanded;
+        var $layout = $('.site-layout');
+        $layout.toggleClass('site-layout--sidebar-open', isExpanded);
+        if(isExpanded) {
+            SIDEBAR.toggleScroll(false);
+            setTimeout(function () {
+                SIDEBAR.toggleButton(true);
+            }, 200)
+        } else {
+            SIDEBAR.toggleButton(false);
+            $layout.one('transitionend', function() {
+                SIDEBAR.toggleScroll(true);
+            });
+        }
+    },
+
+    toggleScroll: function(isEnabled) {
+        $('html').toggleClass('disable-document-scroll', !isEnabled);
+    },
+
+    toggleButton: function(isActive) {
+        $('.toggle-menu-button').toggleClass('toggle-menu-button--active', isActive);
+    }
+};
+
+$(function() {
+    SIDEBAR.initialize();
+});

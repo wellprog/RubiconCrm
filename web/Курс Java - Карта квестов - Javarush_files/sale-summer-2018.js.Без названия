@@ -1,0 +1,135 @@
+if (typeof moment === "undefined") {
+    jQuery.cachedScript = function (url, options) {
+        options = $.extend(options || {}, {
+            dataType: "script",
+            cache: true,
+            url: url
+        });
+        return jQuery.ajax(options);
+    };
+
+    $.cachedScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js").done(function (script, textStatus) {
+        if (typeof moment === "undefined") return true;
+        $(function () {
+            SUMMER2018_SALE.getSaleDataAsyncAndInitialize();
+        });
+    });
+} else {
+    $(function () {
+        SUMMER2018_SALE.getSaleDataAsyncAndInitialize();
+    });
+}
+
+window.SUMMER2018_SALE = {
+    startTime: null,
+    endTime: null,
+    nowTime: new Date(),
+    goodnessByDays: {
+        1: 'large',
+        2: 'small',
+        3: 'small',
+        4: 'small',
+        5: 'small',
+        6: 'large',
+        7: 'small',
+        8: 'small',
+        9: 'small',
+        10: 'small',
+        11: 'large',
+        12: 'small',
+        13: 'small',
+        14: 'large',
+        15: 'large'
+    },
+
+    getSaleDays: function() {
+        var days = [];
+        var start = moment(SUMMER2018_SALE.startTime);
+        var end = moment(SUMMER2018_SALE.endTime);
+        while (end.diff(start) > 0) {
+            var current = moment(start);
+            days.push(current);
+            start = moment(start).add(1, 'day');
+        }
+        return days;
+    },
+
+    getLayoutVariant: function() {
+        var type = "small";
+        SUMMER2018_SALE.getSaleDays().forEach(function(currentValue, index, array) {
+            if (moment(SUMMER2018_SALE.nowTime).isSame(currentValue, 'd')) {
+                type = SUMMER2018_SALE.goodnessByDays[index + 1];
+            }
+        });
+        return type;
+    },
+
+    disableGoodness: function() {
+        if (typeof COOKIES !== "undefined") {
+            var date = new Date();
+            date.setDate(date.getDate() + 1);
+            COOKIES.setCookie('summer2018_goodness_disabled', "1", date, '/');
+        }
+    },
+
+    hideGoodness: function() {
+        var goodness = document.getElementsByClassName('summer2018-sale')[0];
+        goodness.style.display = 'none';
+        SUMMER2018_SALE.disableGoodness();
+
+    },
+
+    showGoodness: function() {
+        var variant = SUMMER2018_SALE.getLayoutVariant();
+        var goodness = document.createElement('div');
+        goodness.innerHTML = '<div class="summer2018-sale summer2018-sale--' + variant + '">' +
+                               '<iframe id="summer2018-sale" class="summer2018-sale__image" src="/assets/images/site/sale/summer-2018/' + variant + '.svg" scrolling="no"></iframe>' +
+                               '<button onclick="SUMMER2018_SALE.hideGoodness()" class="summer2018-sale__close"></button>' +
+                             '</div>';
+        var header = document.getElementsByTagName("header")[0];
+        header.parentNode.insertBefore(goodness, header.nextSibling);
+
+        setTimeout(function() {
+            document.getElementById("summer2018-sale").contentDocument.addEventListener("click", function () {
+                SUMMER2018_SALE.navigateToSalePage()
+            });
+        }, 100)
+    },
+
+    navigateToSalePage: function () {
+        SUMMER2018_SALE.disableGoodness();
+        location.href = "/sale"
+    },
+
+    isEnabled: function () {
+        var isBetweenDates = moment(SUMMER2018_SALE.nowTime).isBetween(SUMMER2018_SALE.startTime, SUMMER2018_SALE.endTime, 'day', '[]');
+        var isDisabledByUser = false;
+
+        if (typeof COOKIES !== "undefined") {
+            var cookie = COOKIES.getCookie('summer2018_goodness_disabled');
+            isDisabledByUser = typeof cookie !== "undefined" && cookie === "1";
+        }
+
+        return isBetweenDates && !isDisabledByUser;
+    },
+
+    initialize: function (priceObject) {
+        SUMMER2018_SALE.startTime = priceObject.sale.startTime;
+        SUMMER2018_SALE.endTime = priceObject.sale.endTime;
+        if (SUMMER2018_SALE.isEnabled()) SUMMER2018_SALE.showGoodness();
+    },
+
+    getSaleDataAsyncAndInitialize: function () {
+        var xhr = new XMLHttpRequest();
+        var url = "https://javarush.ru/api/1.0/rest/subscriptions/prices";
+
+        xhr.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                var prices = JSON.parse(this.responseText);
+                SUMMER2018_SALE.initialize(prices);
+            }
+        };
+        xhr.open("GET", url, true);
+        xhr.send();
+    }
+};

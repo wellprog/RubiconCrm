@@ -1,0 +1,83 @@
+if (window.$ == null)
+    window.$ = window.jQuery;
+
+window.WIDGETS = {
+    context: {},
+
+    initialize: function () {
+
+        //load comments widgets
+        $(".javarush-comments-widget").each(function () {
+            WIDGETS.loadCommentsWidget(this);
+        });
+
+        //load task widget
+        $(".javarush-task-widget").each(function () {
+            WIDGETS.loadTaskWidget(this);
+        });
+    },
+
+    getHost: function () {
+        return location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+    },
+
+    loadCommentsWidget: function (that) {
+        var discussionId = $(that).attr('discussionId');
+        var url = WIDGETS.getHost() + "/widget/discussions/" + encodeURIComponent(discussionId);
+        var html = '<iframe frameborder="0" allowfullscreen="" style="border:none;width:100%;"  src="' + url + '"></iframe>';
+
+        $(that).html(html);
+
+        // disable loader
+        setTimeout(function() {
+            $(that).addClass('loader--disabled');
+        }, 1000);
+    },
+
+    loadTaskWidget: function (that) {
+        //get attributes
+        var showCover = $(that).attr('showCover');
+        var taskKey = $(that).attr('taskKey');
+
+        /* check mobile device */
+        var matchMedia = window.matchMedia("(max-width: 767px)");
+        if (matchMedia.matches) {
+            showCover = true;
+        }
+
+        //error handling
+        if (taskKey == null || taskKey === "")
+        {
+            $(that).css('background-color', 'red');
+            return;
+        }
+
+        //create widget url
+        var url = WIDGETS.getHost() + "/widget/task?key=" + encodeURIComponent(taskKey);
+        if (showCover != null && showCover !== "")
+            url += "&cover=" + encodeURIComponent(showCover);
+
+        //set widget initial size
+        var height = showCover === "true" ? 200 : 600;
+
+        //set widget-display-mode of widget
+        url += "&display=" + encodeURIComponent(showCover === "true" ? "widget" : "page");
+
+        //set light WebIde widget for tutorial
+        if (window.location.pathname.match(/tutorial/)) {
+            url += "&light=true";
+        }
+
+        //generate html
+        var html = '<iframe frameborder="0" allowfullscreen="" style="border:none;width:100%;height:{height}px;" src="{url}"></iframe>';
+        html = html.replace("{height}", height);
+        html = html.replace("{url}", url);
+
+        $(that).html(html);
+    }
+};
+
+
+jQuery(document).ready(function ($) {
+    WIDGETS.initialize();
+});

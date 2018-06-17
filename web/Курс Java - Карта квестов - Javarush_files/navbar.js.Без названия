@@ -1,0 +1,152 @@
+if (window.$ == null)
+    window.$ = window.jQuery;
+
+window.NAVBAR = {
+    context: {
+        itemsCount: 0,
+
+        pageSize: 12,
+        pageIndex: 1,
+        pageNextIndex: 2,
+        pageCount: 0,
+
+        pageUrl: null,
+        pageUrlParams:"",
+    },
+
+    initializeAsync: function () {
+        var pageIndex = NAVBAR.getPageIndex();
+        NAVBAR.initialize(12, pageIndex, window.location.href);
+    },
+
+    getPageIndex: function () {
+        var pageIndex = PARAMS.getUrlParameter("page");
+        return pageIndex != null && pageIndex != "" ? pageIndex * 1 : 1;
+    },
+
+    initialize: function (pageSize, pageIndex, pageUrl) {
+        NAVBAR.context.pageSize = pageSize * 1;
+        NAVBAR.context.pageIndex = pageIndex * 1;
+        NAVBAR.context.pageNextIndex = pageIndex * 1;
+
+        //remove all params from page URL;
+        var index = pageUrl.indexOf("?");
+        // if (index > 0)
+        //     index = pageUrl.indexOf("page=");
+        if (index > 0)
+            pageUrl = pageUrl.substr(0, index);
+        NAVBAR.context.pageUrl =  pageUrl;
+
+
+        $("#jr-next-load-button").click(function () {
+            NAVBAR.context.pageNextIndex++;
+            NAVBAR.loadNextPageAsync(NAVBAR.context.pageNextIndex);
+        });
+    },
+
+    reset: function (params) {
+        NAVBAR.context.pageIndex = 1;
+        NAVBAR.context.pageNextIndex = 1;
+        NAVBAR.context.pageUrlParams = params;
+    },
+
+    startLoading: function () {
+        $("#jr-next-load-button").addClass("load");
+    },
+
+    stopLoading: function () {
+        $("#jr-next-load-button").removeClass("load");
+    },
+
+    updateNavigationBar: function (itemsCount) {
+        //STEP 1. Calculate count of pages.
+        NAVBAR.context.itemsCount = itemsCount;
+        NAVBAR.context.pageCount = Math.ceil(NAVBAR.context.itemsCount / NAVBAR.context.pageSize);
+
+        var container = $("#jr-paging-container");
+        var loadNextContainer = $("#jr-next-load-container");
+        var list = $("#jr-paging-list");
+
+        //STEP 2. Hide navbar when
+        if (NAVBAR.context.pageCount <= 1) {
+            //no paging
+            container.addClass("d-none");
+        } else {
+            container.removeClass("d-none");
+
+            //hide 'show next 12 items' when pageNextIndex>=pageCount
+            if (NAVBAR.context.pageNextIndex < NAVBAR.context.pageCount)
+                loadNextContainer.removeClass("d-none");
+            else
+                loadNextContainer.addClass("d-none");
+
+            //STEP 3. Calculate Bounds
+            var minPage = 1;
+            var maxPage = NAVBAR.context.pageCount;
+            var minLocalPage = NAVBAR.context.pageIndex - 2;
+            if (minLocalPage < minPage)
+                minLocalPage = minPage;
+            var maxLocalPage = NAVBAR.context.pageIndex + 2;
+            if (maxLocalPage > maxPage)
+                maxLocalPage = maxPage;
+
+            //STEP 4. Create new html for nav-bar
+            list.empty();
+
+            var html = "";
+            var dotsHtml = '<li class="pagination__item pagination__separator">...</li>';
+
+            if (minPage < minLocalPage)
+                html += NAVBAR.createNavigationBarItem(minPage);
+            if (minPage + 1 < minLocalPage)
+                html += dotsHtml;
+
+            for (var i = minLocalPage; i <= maxLocalPage; i++)
+                html += NAVBAR.createNavigationBarItem(i);
+
+            if (maxLocalPage + 1 < maxPage)
+                html += dotsHtml;
+            if (maxLocalPage < maxPage)
+                html += NAVBAR.createNavigationBarItem(maxPage);
+
+            list.html(html);
+        }
+    },
+
+    gotoPage: function (pageNumber) {
+        NAVBAR.context.pageIndex = pageNumber;
+//        NAVBAR.loadPageAsync(pageNumber);
+//        return false;
+    },
+
+
+    loadPageAsync: function (pageNumber) {
+        // you should override this function in the view
+    },
+    loadNextPageAsync: function (pageNumber) {
+        // you should override this function in the view
+    },
+
+    createNavigationBarItem: function (pageNumber) {
+        var html = '<li class="pagination__item {active}"><a class="pagination__link" href="{url}" onclick="NAVBAR.gotoPage({pageNumber});">{pageNumber}</a></li>';
+
+        var url =  NAVBAR.context.pageUrl;
+        if (NAVBAR.context.pageUrlParams != null && NAVBAR.context.pageUrlParams != "")
+            url += (url.indexOf("?") > 0 ? "&" : "?") + NAVBAR.context.pageUrlParams;
+        url += (url.indexOf("?") > 0 ? "&" : "?") + "page=" + pageNumber;
+
+        html = html.replace("{url}", url);
+        html = html.replace(new RegExp("{pageNumber}", 'g'), pageNumber);
+
+        //active page
+        var active = NAVBAR.context.pageIndex == pageNumber? "pagination__item--active" : "";
+        html = html.replace("{active}", active);
+
+        return html;
+    }
+};
+
+$(function () {
+    NAVBAR.initializeAsync();
+});
+

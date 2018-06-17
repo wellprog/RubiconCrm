@@ -1,0 +1,307 @@
+jQuery.noConflict();
+jQuery(document).ready(function ($) {
+// start code
+    function reposition() {
+        $(this).css('display', 'block').find('.modal-dialog').css("margin-top", Math.max(0, ($(window).height() - $(this).find('.modal-dialog').height()) / 2));
+    }
+
+    $('.vcenter').on('show.bs.modal', reposition);
+    $(window).on('resize', function () {
+        $('.vcenter:visible').each(reposition);
+        responseTable();
+    });
+    responseTable();
+
+    if (typeof $.fn.typed === 'function') {
+        var secondPart = {
+            stringsElement: $('.typed-strings-2'),
+            typeSpeed     : 10
+        };
+        $("#typed-1").typed({
+            stringsElement: $('.typed-strings-1'),
+            typeSpeed     : 10,
+            callback      : function (curString, curStrPos) {
+                $("#typed-1").next('.typed-cursor').hide(0);
+                $("#typed-2").typed(secondPart);
+            }
+        });
+    }
+
+    $('#shower-menu').click(function () {
+        $(this).toggleClass('active');
+        $('#menu').toggleClass('show');
+        return false;
+    });
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('#menu').length) {
+            $('#menu').removeClass('show');
+            $('#shower-menu').removeClass('active');
+        }
+        e.stopPropagation();
+    });
+
+    $('.map-quests a').on('click', function () {
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body, html').animate({scrollTop: top}, 1000);
+        return false;
+    });
+
+    autosize($('textarea.resize'));
+
+    $('.input-group .form-control').focusin(function () {
+        $(this).prev('.input-group-addon').addClass('focus');
+        $(this).next('.input-group-addon').addClass('focus');
+        $(this).prev('.input-group-btn').addClass('focus');
+        $(this).next('.input-group-btn').addClass('focus');
+    }).focusout(function () {
+        $(this).prev('.input-group-addon').removeClass('focus');
+        $(this).next('.input-group-addon').removeClass('focus');
+        $(this).prev('.input-group-btn').removeClass('focus');
+        $(this).next('.input-group-btn').removeClass('focus');
+    });
+
+    $(':checkbox').change(function () {
+        if ($(this).prop('checked')) {
+            $(this).closest('.checkbox').addClass('checked');
+        } else {
+            $(this).closest('.checkbox').removeClass('checked');
+        }
+    });
+    $(':checkbox').each(function () {
+        if ($(this).prop('checked')) {
+            $(this).closest('.checkbox').addClass('checked');
+        } else {
+            $(this).closest('.checkbox').removeClass('checked');
+        }
+    });
+
+
+    $('.radio-select input').change(function () {
+        radio_select();
+    });
+    radio_select();
+    function radio_select() {
+        $('.radio-select input').each(function () {
+            if ($(this).prop('checked')) {
+                $(this).closest('li').addClass('checked');
+            } else {
+                $(this).closest('li').removeClass('checked');
+            }
+        });
+    }
+
+    $('.show-hide').click(function () {
+        $(this).find('span').toggleClass('active');
+        if ($('.price-block').length > 0) {
+            $(this).closest('.price-block').toggleClass('full');
+        }
+        return false;
+    });
+
+//info.javarush
+    $('[data-toggle="tooltip"]').tooltip();
+
+    if (typeof CountUp == 'function' && $('#counter').length > 0) {
+        $.ajax({
+            type   : "GET",
+            url    : "/api/rest/user/server/statistics.json?v=2" + new Date().getTime(),
+            data   : "",
+            success: function (info) {
+
+                var usersEl = document.getElementById('counter-users');
+                var tasksEl = document.getElementById('counter-tasks');
+
+                var usersCounter = new CountUp(usersEl, 0, info.usersCount, 0, 3);
+                var tasksCounter = new CountUp(tasksEl, 0, info.taskSolvedCount, 0, 3);
+
+                usersCounter.customPrintValue = function (value) {
+                    fillCounter(value, usersEl);
+                };
+
+                tasksCounter.customPrintValue = function (value) {
+                    fillCounter(value, tasksEl);
+                };
+
+                usersCounter.reset();
+                tasksCounter.reset();
+
+                var numbers = document.querySelector('#counter');
+
+                function scroll() {
+                    if (numbers.getBoundingClientRect().top - window.innerHeight <= 0) {
+                        usersCounter.start();
+                        tasksCounter.start();
+                        window.removeEventListener('scroll', scroll);
+                    }
+                }
+
+                window.addEventListener('scroll', scroll);
+            }
+        });
+    }
+
+    $('[data-notify="true"]').on('click', function () {
+        var typeNotify = jQuery(this).data('type'),
+            textNotify = jQuery(this).data('text'),
+            posiNotify = jQuery(this).data('position');
+        $('.notifications.' + posiNotify).notify({
+            message   : {text: textNotify},
+            type      : typeNotify,
+            closable  : true,
+            transition: 'fade',
+            fadeOut   : {enabled: true, delay: 3000},
+            onClose   : function () {
+            },
+            onClosed  : function () {
+            }
+        }).show();
+    });
+
+    $('.user-short .name').each(function () {
+        var user_name = $(this).children('span').text();
+        if (user_name.length > 27) {
+            $(this).append('<span class="cuttext">...</span>');
+        }
+    });
+
+    //reCaptcha Scaling
+    // Initialize scaling
+    scaleCaptcha();
+    // Update scaling on window resize
+    $(window).on('resize', function () {
+        scaleCaptcha();
+    });
+
+    //Banner about new prices
+    // $('header').next('.container').prepend('<div id="banner-notification">19 сентября подписки JavaRush изменятся. <a href="https://javarush.ru/groups/posts/76-podpiski-javarush-novihe-cenih-i-drugie-izmenenija-">Подробнее.</a><span class="icon-cros"></span></div>');
+    // if (getCookie('javarush-banner')) {
+    //     $('#banner-notification').hide(0);
+    // } else {
+    //     if($(".profile-block .user-short").length > 0) {
+    //         $('#banner-notification').show(0);
+    //     } else {
+    //         $('#banner-notification').hide(0);
+    //     }
+    // }
+    // $('#banner-notification .icon-cros').on('click', function () {
+    //     $('#banner-notification').fadeOut(100);
+    //     setCookie('javarush-banner', true, 3);
+    // });
+
+// end code
+});
+
+function fillCounter(value, elem) {
+    while (elem.childElementCount < ('' + value).length) {
+        var li = document.createElement('li');
+        elem.appendChild(li);
+    }
+    value = ('' + value).split('');
+    value.forEach(function (item, i) {
+        elem.children[i].textContent = item;
+    });
+}
+
+if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+    jQuery(document).ready(function ($) {
+        $('.wow').css('visibility', 'visible');
+    });
+} else {
+    var wow = new WOW({
+            boxClass       : 'wow',
+            animateClass   : 'animated',
+            offset         : 0,
+            mobile         : false,
+            live           : true,
+            callback       : function (box) {
+            },
+            scrollContainer: null
+        }
+    );
+    wow.init();
+}
+
+jQuery(document).on('click', '#fbs, #tws, #gls, #lds', function (e) {
+    e.preventDefault();
+    var winHeight = 350,
+        winWidth  = 520,
+        winTop    = (screen.height / 2) - (winHeight / 2),
+        winLeft   = (screen.width / 2) - (winWidth / 2),
+        link      = jQuery(this).attr('href');
+    window.open(link, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+});
+
+function responseTable() {
+    if (jQuery('body').width() < 999) {
+        jQuery('.lesson table').each(function (i) {
+            var header    = jQuery(this).find('th').closest('tr').addClass('hide');
+            var header_th = [];
+            header.find('th').each(function () {
+                var html = jQuery(this).html();
+                console.log(html);
+                html ? header_th.push('') : header_th.push(html);
+            });
+            jQuery(this).find('tr').each(function () {
+                jQuery(this).find('td').each(function (i) {
+                    var data    = jQuery(this).data('html');
+                    var td_html = jQuery(this).html();
+                    if (data == undefined) {
+                        jQuery(this).data('html', td_html);
+                    } else {
+                        td_html = data;
+                    }
+                    header_th_text = header_th[i] == undefined ? "" : header_th[i];
+                    jQuery(this).html('<h4 class="th">' + header_th_text + '</h4>' + td_html);
+                });
+            });
+        });
+    } else {
+        jQuery('.lesson table').each(function (i) {
+            jQuery(this).find('th').closest('tr').removeClass('hide');
+            jQuery(this).find('tr').each(function () {
+                jQuery(this).find('h4.th').remove();
+            });
+        });
+    }
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires     = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name          = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca            = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return false;
+}
+
+function scaleCaptcha(elementWidth) {
+    // Width of the reCAPTCHA element, in pixels
+    var reCaptchaWidth = 304;
+    // Get the containing element's width
+    var containerWidth = jQuery('.auth-widget').width();
+    // Only scale the reCAPTCHA if it won't fit
+    // inside the container
+    if(reCaptchaWidth > containerWidth) {
+        // Calculate the scale
+        var captchaScale = containerWidth / reCaptchaWidth;
+        // Apply the transformation
+        jQuery('.g-recaptcha').css({
+            'transform':'scale('+captchaScale+')'
+        });
+    }
+}
