@@ -1,0 +1,28 @@
+Путь к файлику хостов
+C:\Windows\System32\drivers\etc\hosts
+
+что в нем делать?
+
+вбить туда адрес сайта и его доменное имя например
+127.0.0.1 rubic.ru
+
+вбивать прям внизу
+
+
+для работы APACHE на сайт нужно поправить конфиг
+он обычно находится в папке apache/conf которая находится
+в установку сервера (например xampp или openserv)
+файлик называется (обычно) httpd-vhosts.conf
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "/Users/Student/Downloads/RubiconCrm"
+    ServerName rubic.ru
+    ##ServerAlias www.rubic.ru
+
+    <Directory "/Users/Student/Downloads/RubiconCrm">
+        AllowOverride All
+        Options Indexes FollowSymLinks Includes ExecCGI
+        Require all granted
+    </Directory>
+</VirtualHost>

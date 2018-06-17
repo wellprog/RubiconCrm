@@ -11,17 +11,19 @@
 
 class Vtiger_Base_UIType extends \App\Base
 {
-
 	/**
-	 * Verify the value
+	 * Verify the value.
+	 *
 	 * @var bool
 	 */
 	protected $validate = false;
 
 	/**
-	 * Function to get the DB Insert Value, for the current field type with given User Value
-	 * @param mixed $value
+	 * Function to get the DB Insert Value, for the current field type with given User Value.
+	 *
+	 * @param mixed                $value
 	 * @param \Vtiger_Record_Model $recordModel
+	 *
 	 * @return mixed
 	 */
 	public function getDBValue($value, $recordModel = false)
@@ -32,14 +34,16 @@ class Vtiger_Base_UIType extends \App\Base
 		if (is_null($value)) {
 			return '';
 		}
+
 		return \App\Purifier::decodeHtml($value);
 	}
 
 	/**
-	 * Set value from request
-	 * @param \App\Request $request
+	 * Set value from request.
+	 *
+	 * @param \App\Request        $request
 	 * @param Vtiger_Record_Model $recordModel
-	 * @param string|bool $requestFieldName
+	 * @param string|bool         $requestFieldName
 	 */
 	public function setValueFromRequest(\App\Request $request, Vtiger_Record_Model $recordModel, $requestFieldName = false)
 	{
@@ -53,10 +57,11 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Verification of data
+	 * Verification of data.
+	 *
 	 * @param string $value
-	 * @param bool $isUserFormat
-	 * @return null
+	 * @param bool   $isUserFormat
+	 *
 	 * @throws \App\Exceptions\Security
 	 */
 	public function validate($value, $isUserFormat = false)
@@ -70,16 +75,18 @@ class Vtiger_Base_UIType extends \App\Base
 		if (!is_numeric($value) && (is_string($value) && $value !== strip_tags($value))) {
 			throw new \App\Exceptions\Security('ERR_ILLEGAL_FIELD_VALUE||' . $this->getFieldModel()->getFieldName() . '||' . $value, 406);
 		}
-		if (App\Utils::getTextLength($value) > 255) {
+		if (App\TextParser::getTextLength($value) > 255) {
 			throw new \App\Exceptions\Security('ERR_VALUE_IS_TOO_LONG||' . $this->getFieldModel()->getFieldName() . '||' . $value, 406);
 		}
 		$this->validate = true;
 	}
 
 	/**
-	 * Convert value before writing to the database
-	 * @param mixed $value
+	 * Convert value before writing to the database.
+	 *
+	 * @param mixed               $value
 	 * @param Vtiger_Record_Model $recordModel
+	 *
 	 * @return mixed
 	 */
 	public function convertToSave($value, Vtiger_Record_Model $recordModel)
@@ -88,26 +95,31 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get the display value, for the current field type with given DB Insert Value
-	 * @param mixed $value Field value
-	 * @param int|bool $record Record Id
+	 * Function to get the display value, for the current field type with given DB Insert Value.
+	 *
+	 * @param mixed                    $value       Field value
+	 * @param int|bool                 $record      Record Id
 	 * @param Vtiger_Record_Model|bool $recordModel
-	 * @param bool $rawText Return text or html
-	 * @param int|bool $length Length of the text
+	 * @param bool                     $rawText     Return text or html
+	 * @param int|bool                 $length      Length of the text
+	 *
 	 * @return mixed
 	 */
 	public function getDisplayValue($value, $record = false, $recordModel = false, $rawText = false, $length = false)
 	{
 		if (is_int($length)) {
-			$value = \vtlib\Functions::textLength($value, $length);
+			$value = \App\TextParser::textTruncate($value, $length);
 		}
+
 		return \App\Purifier::encodeHtml($value);
 	}
 
 	/**
-	 * Function to get the edit value in display view
-	 * @param mixed $value
+	 * Function to get the edit value in display view.
+	 *
+	 * @param mixed               $value
 	 * @param Vtiger_Record_Model $recordModel
+	 *
 	 * @return mixed
 	 */
 	public function getEditViewDisplayValue($value, $recordModel = false)
@@ -116,11 +128,13 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get the list value in display view
-	 * @param mixed $value Field value
-	 * @param int $record|bool Record Id
+	 * Function to get the list value in display view.
+	 *
+	 * @param mixed                    $value       Field value
+	 * @param int                      $record|bool Record Id
 	 * @param Vtiger_Record_Model|bool $recordModel
-	 * @param bool $rawText Return text or html
+	 * @param bool                     $rawText     Return text or html
+	 *
 	 * @return mixed
 	 */
 	public function getListViewDisplayValue($value, $record = false, $recordModel = false, $rawText = false)
@@ -129,11 +143,13 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get the related list value in display view
-	 * @param mixed $value Field value
-	 * @param int $record|bool Record Id
+	 * Function to get the related list value in display view.
+	 *
+	 * @param mixed                    $value       Field value
+	 * @param int                      $record|bool Record Id
 	 * @param Vtiger_Record_Model|bool $recordModel
-	 * @param bool $rawText Return text or html
+	 * @param bool                     $rawText     Return text or html
+	 *
 	 * @return mixed
 	 */
 	public function getRelatedListViewDisplayValue($value, $record = false, $recordModel = false, $rawText = false)
@@ -142,8 +158,10 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get Display value for RelatedList
+	 * Function to get Display value for RelatedList.
+	 *
 	 * @param string $value
+	 *
 	 * @return string
 	 */
 	public function getRelatedListDisplayValue($value)
@@ -152,8 +170,10 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Static function to get the UIType object from Vtiger Field Model
+	 * Static function to get the UIType object from Vtiger Field Model.
+	 *
 	 * @param Vtiger_Field_Model $fieldModel
+	 *
 	 * @return Vtiger_Base_UIType or UIType specific object instance
 	 */
 	public static function getInstanceFromField($fieldModel)
@@ -173,17 +193,19 @@ class Vtiger_Base_UIType extends \App\Base
 
 		if (file_exists($moduleSpecificFilePath)) {
 			$instance = new $moduleSpecificUiTypeClassName();
-		} else if (file_exists($completeFilePath)) {
+		} elseif (file_exists($completeFilePath)) {
 			$instance = new $uiTypeClassName();
 		} else {
 			$instance = new $fallBackClassName();
 		}
 		$instance->set('field', $fieldModel);
+
 		return $instance;
 	}
 
 	/**
-	 * Function to get the Template name for the current UI Type Object
+	 * Function to get the Template name for the current UI Type Object.
+	 *
 	 * @return string - Template Name
 	 */
 	public function getTemplateName()
@@ -192,7 +214,8 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get the Detailview template name for the current UI Type Object
+	 * Function to get the Detailview template name for the current UI Type Object.
+	 *
 	 * @return string - Template Name
 	 */
 	public function getDetailViewTemplateName()
@@ -201,7 +224,8 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Function to get the Template name for the current UI Type object
+	 * Function to get the Template name for the current UI Type object.
+	 *
 	 * @return string - Template Name
 	 */
 	public function getListSearchTemplateName()
@@ -210,7 +234,8 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * Get field model instance
+	 * Get field model instance.
+	 *
 	 * @return Vtiger_Field_Model
 	 */
 	public function getFieldModel()
@@ -229,7 +254,7 @@ class Vtiger_Base_UIType extends \App\Base
 	}
 
 	/**
-	 * If the field is sortable in ListView
+	 * If the field is sortable in ListView.
 	 */
 	public function isListviewSortable()
 	{
