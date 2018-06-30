@@ -5,7 +5,9 @@
         </div> -->
 
         <div class="quest-map__desktop">
-            <?php include "question-map-milestone.php" ?>
+            <?php for ($i = 0; $i < 10; $i++): ?>
+                <?php include "question-map-milestone.php" ?>
+            <?php endfor; ?>
         </div>
         
     </div>
