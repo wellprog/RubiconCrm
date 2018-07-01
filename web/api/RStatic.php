@@ -15,8 +15,11 @@ function addRecord() {
 }
 
 if (isset($_POST["method"])) {
-    if ($_POST["method"] == "add")
-        return addRecord();
+    if ($_POST["method"] == "add") {
+        $data = addRecord();
+        echo json_encode($data);
+        return ;
+    }
 }
 
 $requester = new link();
