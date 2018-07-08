@@ -13,3 +13,5 @@
 [17-Jun-2018 09:52:28 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
 [17-Jun-2018 09:52:28 Europe/Moscow] PHP Notice:  Undefined variable: response in /var/www/RubiconCrm/include/main/WebUI.php on line 219
 [17-Jun-2018 10:11:40 Europe/Moscow] PHP Notice:  Undefined variable: stdFilterList in /var/www/RubiconCrm/modules/CustomView/models/Record.php on line 627
+[30-Jun-2018 12:32:21 Europe/Moscow] PHP Warning:  PDO::exec(): MySQL server has gone away in C:\Users\velor\Documents\Shag\RubiconCrm\vendor\yii\db\Connection.php on line 651
+[30-Jun-2018 12:32:23 Europe/Moscow] PHP Warning:  PDO::exec(): Error reading result set's header in C:\Users\velor\Documents\Shag\RubiconCrm\vendor\yii\db\Connection.php on line 651
