@@ -20,9 +20,9 @@
  */
 require dirname(__FILE__) . "/../link/link.php";
 
-// $_POST["method"] = "register";
-// $_POST["login"] = "test1";
-// $_POST["pass"] = "test";
+$_POST["method"] = "auth";
+$_POST["login"] = "test";
+$_POST["pass"] = "test";
 
 if (!isset($_POST["method"])) {
     Responce::WriteError(Responce::ERR_NO_METHOD);
@@ -46,7 +46,7 @@ if ($_POST["method"] == "auth") {
     }
 
     $userIdentefer = uniqid();
-    file_put_contents($userIdentefer, $record["userid"]);
+    file_put_contents($userIdentefer, $record["ruserid"]);
 
     Responce::WriteData($userIdentefer);
 }
