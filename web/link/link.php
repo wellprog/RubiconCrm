@@ -4,6 +4,7 @@
 //Для нормальной работы основных скриптов
 chdir("./../../");
 require 'include/main/WebUI.php';
+require __dir__ . '/responce.php';
 
 class link {
     const userID = 1;
