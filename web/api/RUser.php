@@ -20,9 +20,9 @@
  */
 require dirname(__FILE__) . "/../link/link.php";
 
-$_POST["method"] = "auth";
-$_POST["login"] = "test";
-$_POST["pass"] = "test";
+// $_POST["method"] = "auth";
+// $_POST["login"] = "test";
+// $_POST["pass"] = "test";
 
 if (!isset($_POST["method"])) {
     Responce::WriteError(Responce::ERR_NO_METHOD);
