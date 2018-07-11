@@ -3,7 +3,7 @@
 require dirname(__FILE__) . "/../link/link.php";
 
 
-$_POST["token"] = "5b43a2399ed58";
+// $_POST["token"] = "5b462fd7196ae";
 
 if (!isset($_POST["token"])) {
     Responce::WriteError(Responce::ERR_WRONG_FIELDS);

@@ -16,7 +16,8 @@
  * login  = логин пользователя
  * pass   = пароль пользователя
  * 
- * В случае успеха возвращается 0 ошибка
+ * В случае успеха возвращается ключ доступа
+ * В противном случае стандартные ошибки
  */
 require dirname(__FILE__) . "/../link/link.php";
 
@@ -64,7 +65,10 @@ if ($_POST["method"] == "register") {
     $r->set("password", $pass);
     $r->save();
 
-    Responce::current()->write();
+    $userIdentefer = uniqid();
+    file_put_contents($userIdentefer, $r->getId());
+
+    Responce::WriteData($userIdentefer);
 }
 
 /**
