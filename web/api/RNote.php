@@ -33,7 +33,8 @@ if (isset($_POST["method"]) && $_POST["method"] == "AddCat") {
     $model->set("userid", $userid);
     $model->set("assigned_user_id", $userid);
 
-    if (!$model->save()) {
+    $model->save();
+    if ($model->getId() == "") {
         Responce::WriteError(Responce::ERR_SAVE_RECORD);
     } else {
         Responce::WriteData($model->getId());
