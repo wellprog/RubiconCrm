@@ -8,6 +8,7 @@ class Responce {
     const ERR_WRONG_PASS   = 3;
     const ERR_WRONG_FIELDS = 4;
     const ERR_AUTH         = 5;
+    const ERR_SAVE_RECORD  = 6;
 
     private $errorDesc;
     /********SINGLTON*********/
@@ -45,6 +46,7 @@ class Responce {
         $this->errorDesc[self::ERR_WRONG_PASS] = "Неверный пароль";
         $this->errorDesc[self::ERR_WRONG_FIELDS] = "Отправлены неверные поля";
         $this->errorDesc[self::ERR_AUTH] = "Ошибка авторизации";
+        $this->errorDesc[self::ERR_SAVE_RECORD] = "Ошибка сохранения записи";
     }
 
     public static function WriteError(int $errorID) {
