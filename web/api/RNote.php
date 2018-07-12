@@ -18,6 +18,11 @@ if (!file_exists($token)) {
 
 $userid = file_get_contents($token);
 
+$user = Vtiger_Record_Model::getInstanceById($userid);
+if ($user == null) {
+    Responce::WriteError(Responce::ERR_AUTH);
+}
+
 if (isset($_POST["method"]) && $_POST["method"] == "AddCat") {
     if (!isset($_POST["name"]))
         Responce::WriteError(Responce::ERR_WRONG_FIELDS);
@@ -26,19 +31,13 @@ if (isset($_POST["method"]) && $_POST["method"] == "AddCat") {
     $model = Vtiger_Record_Model::getCleanInstance("RNoteCategory");
     $model->set("name", $_POST["name"]);
     $model->set("userid", $userid);
+    $model->set("assigned_user_id", $userid);
 
     if (!$model->save()) {
         Responce::WriteError(Responce::ERR_SAVE_RECORD);
     } else {
         Responce::WriteData($model->getId());
     }
-}
-
-
-
-$user = Vtiger_Record_Model::getInstanceById($userid);
-if ($user == null) {
-    Responce::WriteError(Responce::ERR_AUTH);
 }
 
 $requester = new link();
