@@ -5,20 +5,6 @@ require dirname(__FILE__) . "/../link/link.php";
 
 // $_POST["token"] = "5b462fd7196ae";
 
-if (isset($_POST["method"]) && $_POST["method"] == "AddCat") {
-    if (!isset($_POST["name"]))
-        Responce::WriteError(Responce::ERR_WRONG_FIELDS);
-
-
-    $model = Vtiger_Record_Model::getCleanInstance("RNoteCategory");
-    $model->set("name", $_POST["name"]);
-
-    if (!$model->save()) {
-        Responce::WriteError(Responce::ERR_SAVE_RECORD);
-    } else {
-        Responce::WriteData($model->getId());
-    }
-}
 
 if (!isset($_POST["token"])) {
     Responce::WriteError(Responce::ERR_WRONG_FIELDS);
@@ -31,6 +17,24 @@ if (!file_exists($token)) {
 }
 
 $userid = file_get_contents($token);
+
+if (isset($_POST["method"]) && $_POST["method"] == "AddCat") {
+    if (!isset($_POST["name"]))
+        Responce::WriteError(Responce::ERR_WRONG_FIELDS);
+
+
+    $model = Vtiger_Record_Model::getCleanInstance("RNoteCategory");
+    $model->set("name", $_POST["name"]);
+    $model->set("userid", $userid);
+
+    if (!$model->save()) {
+        Responce::WriteError(Responce::ERR_SAVE_RECORD);
+    } else {
+        Responce::WriteData($model->getId());
+    }
+}
+
+
 
 $user = Vtiger_Record_Model::getInstanceById($userid);
 if ($user == null) {
