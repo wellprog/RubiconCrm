@@ -17,7 +17,7 @@ foreach ($dd as $key => $value) {
     $query = $requester->getLink("RTestsAnswers")->createQuery();
     $query->andWhere(["rtestsid" => $value["rtestsid"]]);
         
-    $data[$key]["answers"] = "";//$query->all();
+    $data[$key]["answers"] = $query->all();
 }
 
 echo json_encode($data);
