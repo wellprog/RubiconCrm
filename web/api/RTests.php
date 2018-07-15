@@ -13,7 +13,7 @@ if (isset($_GET["id"])) {
 
 
 $data = $query->all();
-foreach ($dd as $key => $value) {
+foreach ($data as $key => $value) {
     $query = $requester->getLink("RTestsAnswers")->createQuery();
     $query->andWhere(["rtestsid" => $value["rtestsid"]]);
         
