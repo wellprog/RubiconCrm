@@ -13,4 +13,11 @@ if (isset($_GET["id"])) {
 
 
 $data = $query->all();
+foreach ($dd as $key => $value) {
+    $query = $requester->getLink("RTestsAnswers")->createQuery();
+    $query->andWhere(["rtestsid" => $value["rtestsid"]]);
+        
+    $data[$key]["answers"] = "";//$query->all();
+}
+
 echo json_encode($data);
